@@ -1,0 +1,156 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h2>Passport Request Form</h2>
+  <form action="" method="post">
+    {{form.hidden_tag()}} <!-- important tag-->
+
+    <!-- basic details -->
+    <div class="firstDet row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.date.label() }}</p>
+        <p>{{ form.name.label() }}</p>
+        <p>{{ form.pow.label() }}</p>
+        <p>{{ form.remarks.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.date }}</p>
+        <p>{{ form.name }}</p>
+        <p>{{ form.pow }}</p>
+        <p>{{ form.remarks }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <br>
+        <p>{{ form.emp_no.label() }}</p>
+        <br>
+        <p>{{ form.days_req.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <br>
+        <p>{{ form.emp_no }}</p>
+        <br>
+        <p>{{ form.days_req }}</p>
+      </div>
+    </div>
+
+    <!--Guarantors-->
+    <h5>Section 1: Guarantors</h5>
+    <div class="persDet row">
+      <div class="col-lg-12">
+        <p>
+          This is to acknowledge that the udersigned herewith guarantees:
+        </p>
+      </div>
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.g1_name.label() }}</p>
+        <p>{{ form.g1_dept.label() }}</p>
+        <p>{{ form.g1_id_no.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.g1_name }}</p>
+        <p>{{ form.g1_dept }}</p>
+        <p>{{ form.g1_id_no }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.g2_name.label() }}</p>
+        <p>{{ form.g2_dept.label() }}</p>
+        <p>{{ form.g2_id_no.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.g2_name }}</p>
+        <p>{{ form.g2_dept }}</p>
+        <p>{{ form.g2_id_no }}</p>
+      </div>
+
+      <div class="col-lg-12">
+        <p>
+          The guarantors assures that incase the emloyee fails to return the passport on due date, the employee will bear the cost of absconding/visa charges/advances/loans any other dues from employee to company.
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- Approval -->
+    <h5>Section 2: Approval</h5>
+    <div class="persDet row">
+      <div class="col-lg-3 con1">
+        <p>{{ form.checked_by.label() }}</p>
+        <p>{{ form.appr_by_lm.label() }}</p>
+        <p>{{ form.appr_by_hr.label() }}</p>
+        <p>{{ form.dir_op.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.checked_by }}</p>
+        <p>{{ form.appr_by_lm }}</p>
+        <p>{{ form.appr_by_hr }}</p>
+        <p>{{ form.dir_op }}</p>
+      </div>
+
+
+
+    </div>
+
+    <!-- passport issue -->
+    <h5>Section 3: Passport Issue</h5>
+    <div class="hrDet row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.pass_rec.label() }}</p>
+        <p>{{ form.date_pass_rec.label() }}</p>
+        <p>{{ form.lc_rec.label() }}</p>
+        <p>{{ form.date_lc_rec.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.pass_rec }}</p>
+        <p>{{ form.date_pass_rec }}</p>
+        <p>{{ form.lc_rec }}</p>
+        <p>{{ form.date_lc_rec }}</p>
+      </div>
+
+    </div>
+
+
+    <!-- passport return -->
+    <h5>Section 4: Passport Return</h5>
+    <div class="noLeaveAp row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.pass_rec_e.label() }}</p>
+        <p>{{ form.date_pass_rec_e.label() }}</p>
+        <p>{{ form.lc_rec_e.label() }}</p>
+        <p>{{ form.date_lc_rec_e.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.pass_rec_e }}</p>
+        <p>{{ form.date_pass_rec_e }}</p>
+        <p>{{ form.lc_rec_e }}</p>
+        <p>{{ form.date_lc_rec_e }}</p>
+      </div>
+
+    </div>
+
+
+
+    <h5>{{ form.submit }}</h5>
+
+
+
+  </form>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

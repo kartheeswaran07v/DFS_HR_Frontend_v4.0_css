@@ -1,0 +1,55 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+
+  <h1 style="text-align: center;">Roster for - {{date}} - Successfully Added</h1>
+
+
+  <div class="time_suc_entry row" style="text-align: left; margin-right: 100px;">
+    <div class="col-lg-12">
+      {% for hotel in data  %}
+        {% if hotel.hotel_name != '' %}
+          <h3> Hotel Name: {{hotel.hotel_name}}</h3>
+          {% for staff in hotel.staffs  %}
+            {% if staff.name != '' %}
+              <div style="text-align: left; margin-right: 100px;">
+                <p> Name: {{staff.name}}    |  Time In 1: {{staff.time_in}}  |   Time Out 1: {{staff.time_out}} |    Time In 2: {{staff.time_in_a}}  | Time Out 2: {{staff.time_in_b}}    |    Pick Up Time: {{staff.pick_up}}  |   Remarks: {{staff.remarks}}</p>
+              </div>
+              {% endif %}
+          {% endfor %}
+        {% endif %}
+
+      {% endfor %}
+    </div>
+
+
+  </div>
+  <div class="row" style="text-align: center;">
+    <div class="col-lg-6">
+      <form>
+        <button formaction="{{url_for('home')}}">Home</button>
+      </form>
+    </div>
+    <div class="col-lg-6">
+      <form>
+        <button formaction="{{url_for('roster')}}">New Roster</button>
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}
+

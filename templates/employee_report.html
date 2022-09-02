@@ -1,0 +1,55 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            {% for key, value in data.items() %}
+                {% if value is string %}
+                    ['{{ key }}', '{{ value }}'],
+                {% else %}
+                    ['{{ key }}', {{ value }}],
+                {% endif %}
+            {% endfor %}
+        ]);
+
+        var options = {
+          title: 'Absent V. Present',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Employees</h1>
+  <!-- buttons -->
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+    {% for i in len %}
+    <div class="col-lg-12">
+      <p>{{ ts[i].employeeID }} | {{ ts[i].name }} | {{ departments[i] }} <a href="{{url_for('employee_view', employee_id=ts[i].id)}}">View</a>--|--<a href="{{url_for('employee_edit', employee_id=ts[i].id)}}">Edit</a></p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div style="margin: 10px 0 0 10px;width: 1000px">
+      <h3>Absent v. Present</h3>
+
+      <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </div>
+
+
+{% include "footer.html" %}
+{% endblock %}

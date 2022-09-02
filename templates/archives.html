@@ -1,0 +1,41 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Archives</h1>
+  <!-- buttons -->
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+    <div class="col-lg-6 buttonMain">
+      <form>
+        <button formaction="{{url_for('roster_archive')}}" class="button" style="padding: 80px 92px;width: 70%;">Rosters</button>
+      </form>
+    </div>
+    <div class="col-lg-6 buttonMain">
+      <form>
+        <button formaction="{{url_for('timesheet_archive')}}" class="button" style="padding: 80px 92px; width: 70%;">Timesheets</button>
+      </form>
+    </div>
+
+  </div>
+  <form action="" method="post">
+      {{form.hidden_tag()}}
+      {{ form.csrf_token }}
+
+  <h3 style="text-align: center; margin-bottom: 70px;">Master Timesheet: From Date: {{form.date1}}  |  To Date: {{form.date2}}  | {{form.submit}}</h3>
+    <p style="color:red; text-align: center; margin-bottom: 70px; font-size: 2rem;">{{ msg }}</p>
+
+  </form>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

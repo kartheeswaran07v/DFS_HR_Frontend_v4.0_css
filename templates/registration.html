@@ -1,0 +1,74 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix</span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <div>
+    <form action="/registration" method="post" enctype="multipart/form-data">
+
+      <h5>Basic Details</h5>
+      <div class="basDet row">
+          <p>{{ form.name.label }}{{ form.name }}</p>
+          <p>{{ form.address_uae.label }}{{ form.address_uae }}</p>
+          <p>{{ form.po_box.label }}{{ form.po_box }}</p>
+          <p>{{ form.mobile_p.label }}{{ form.mobile_p }}</p>
+          <p>{{ form.mobile_h.label }}{{ form.mobile_h }}</p>
+          <p>{{ form.personal_mail.label }}{{ form.personal_mail }}</p>
+          <p>{{ form.address_home.label }}{{ form.address_home }}</p>
+          <p>{{ form.passport_no.label }}{{ form.passport_no }}</p>
+          <p>{{ form.nationality.label }}{{ form.nationality }}</p>
+          <p>{{ form.own_car.label }}{{ form.own_car }}</p>
+          <p>{{ form.car_rent.label }}{{ form.car_rent }}</p>
+
+
+      </div>
+
+      <h5>Emergency Contact Details</h5>
+      <div class="emeCon row">
+
+        <div class="col-lg-6 con1">
+            <p>{{ form.e_uae_name.label }}</p><p>{{ form.e_uae_name }}</p>
+            <p>{{ form.e_uae_rel.label }}</p><p>{{ form.e_uae_rel }}</p>
+            <p>{{ form.e_uae_addr.label }}</p><p>{{ form.e_uae_addr }}</p>
+            <p>{{ form.e_uae_mob.label }}</p><p>{{ form.e_uae_mob }}</p>
+            <p>{{ form.e_uae_hom.label }}</p><p>{{ form.e_uae_hom }}</p>
+        </div>
+        <div class="col-lg-6 con2">
+              <p>{{ form.origin_country.label }}{{ form.origin_country }}</p>
+              <p>{{ form.e_co_name.label }}{{ form.e_co_name }}</p>
+              <p>{{ form.e_co_rel.label }}{{ form.e_co_rel }}</p>
+              <p>{{ form.e_co_addr.label }}{{ form.e_co_addr }}</p>
+              <p>{{ form.e_co_mob.label }}{{ form.e_co_mob }}</p>
+              <p>{{ form.e_co_hom.label }}{{ form.e_co_hom }}</p>
+
+        </div>
+      </div>
+
+      <h5>Upload Documents</h5>
+      <div class="upload row">
+              <form method="POST" enctype="multipart/form-data" action="/doc">
+                  <input type="file" name="file" multiple="">
+                  <input type="submit" value="add">
+              </form>
+              <p>{{ form.submit.label }}{{ form.submit }}</p>
+      </div>
+    </form>
+
+  </div>
+
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}
+
+
+

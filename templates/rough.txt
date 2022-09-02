@@ -1,0 +1,44 @@
+
+    // $(function() {
+    //   $('#addButton').click(function(this) {
+    //     var buttonNumber = this.data('data-btno')
+    //     var divString = '<div class="item row"><div class="col-lg-2 con1"><label for="name'+buttonNumber+'">Name:</label></div><div class="col-lg-2"><input type="text" id="name'+buttonNumber+'" name="name'+buttonNumber+'" value="--None--"></div></div>';
+    //     var newDiv1 = $(divString);
+    //
+    //     var hotelChildNo = "#hotelChild" + buttonNumber
+    //     var hotelDiv = $(hotelChildNo)
+    //     console.log(buttonNumber)
+    //
+    //     $(hotelDiv).append(newDiv1);
+    //   });
+    // });
+
+<!--    function reply_click(clicked_id)-->
+<!--    {-->
+<!--        var buttonNumber = clicked_id.toString();-->
+<!--        var divString = '<div class="item row"><div class="col-lg-2 con1"><label for="name'+buttonNumber+'">Name:</label></div><div class="col-lg-2"><input type="text" id="name'+buttonNumber+'" name="name'+buttonNumber+'" value="&#45;&#45;None&#45;&#45;"></div><div class="col-lg-2 con1"><label for="timeInA'+buttonNumber+'">Time In 1:</label></div><div class="col-lg-2"><input type="number" id="timeInA'+buttonNumber+'" name="timeInA'+buttonNumber+'" value="0"></div><div class="col-lg-2 con1"><label for="timeOutA'+buttonNumber+'">Time Out 1:</label></div><div class="col-lg-2"><input type="number" id="timeOutA'+buttonNumber+'" name="timeOutA'+buttonNumber+'" value="0"></div><div class="col-lg-2 con1"><label for="timeInB'+buttonNumber+'">Time In 2:</label></div><div class="col-lg-2"><input type="number" id="timeInB'+buttonNumber+'" name="timeInB'+buttonNumber+'" value="0"></div><div class="col-lg-2 con1"><label for="timeOutB'+buttonNumber+'">Time Out 2:</label>';-->
+<!--        var divString2 = '</div><div class="col-lg-2"><input type="number" id="timeOutB'+buttonNumber+'" name="timeOutB'+buttonNumber+'" value="0"></div><div class="col-lg-2 con1"><label for="pickUp'+buttonNumber+'">Pick Up:</label></div><div class="col-lg-2"><input type="number" id="pickUp'+buttonNumber+'" name="pickUp'+buttonNumber+'" value="0"></div><div class="col-lg-2 con1"><label for="remarks'+buttonNumber+'">Remarks:</label></div><div class="col-lg-2"><input type="text" id="remarks'+buttonNumber+'" name="remarks'+buttonNumber+'" value=""></div></div>'-->
+<!--        var totalDivString = divString + divString2-->
+<!--        var newDiv1 = $(totalDivString);-->
+
+<!--        var hotelChildNo = "#hotelChild" + buttonNumber-->
+<!--        var hotelDiv = $(hotelChildNo)-->
+<!--        console.log(buttonNumber)-->
+
+<!--        $(hotelDiv).append(newDiv1);-->
+<!--    }-->
+
+
+
+<!--    $(function() {-->
+<!--      $('#addHotel').click(function() {-->
+<!--        var numItems = $('.hotel').length + 1;-->
+<!--        var numStr = numItems.toString();-->
+<!--        var hotelDivS = '<div><div id="hotelChild'+numStr+'" class="hotel"><div class="firstDet row"><div class="col-lg-2 con1"><label for="hotel">Hotel:</label></div><div class="col-lg-2"><input type="text" id="hotel" name="hotel" value=""></div></div><div class="item row"><div class="col-lg-2 con1"><label for="name'+numStr+'">Name:</label></div><div class="col-lg-2"><input type="text" id="name'+numStr+'" name="name'+numStr+'" value="&#45;&#45;None&#45;&#45;"></div><div class="col-lg-2 con1"><label for="timeInA'+numStr+'">Time In 1:</label></div><div class="col-lg-2"><input type="number" id="timeInA'+numStr+'" name="timeInA'+numStr+'" value="0"></div><div class="col-lg-2 con1"><label for="timeOutA'+numStr+'">Time Out 1:</label></div><div class="col-lg-2"><input type="number" id="timeOutA'+numStr+'" name="timeOutA'+numStr+'" value="0"></div><div class="col-lg-2 con1"><label for="timeInB'+numStr+'">Time In 2:</label></div><div class="col-lg-2">';-->
+<!--        var hotelDivs2 = '<input type="number" id="timeInB'+numStr+'" name="timeInB'+numStr+'" value="0"></div><div class="col-lg-2 con1"><label for="timeOutB1'+numStr+'">Time Out 2:</label></div><div class="col-lg-2"><input type="number" id="timeOutB'+numStr+'" name="timeOutB'+numStr+'" value="0"></div><div class="col-lg-2 con1"><label for="pickUp1'+numStr+'">Pick Up:</label></div><div class="col-lg-2"><input type="number" id="pickUp'+numStr+'" name="pickUp'+numStr+'" value="0"></div><div class="col-lg-2 con1"><label for="remarks'+numStr+'">Remarks:</label></div><div class="col-lg-2"><input type="text" id="remarks'+numStr+'" name="remarks'+numStr+'" value=""></div></div></div><div><h5><button type="button" name="button" id="addButton" onclick="reply_click('+numStr+')" data-btno='+numStr+'>Add Staff</button></h5></div></div>';-->
+<!--        var hotelDivSS = hotelDivS + hotelDivs2-->
+<!--        var newDiv1 = $(hotelDivSS);-->
+
+<!--        $('#masterDiv').append(newDiv1);-->
+<!--      });-->
+<!--    });-->

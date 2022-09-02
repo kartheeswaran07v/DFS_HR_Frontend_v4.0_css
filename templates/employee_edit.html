@@ -1,0 +1,101 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{ url_for('home') }}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <form action="" method="post">
+      {{form.hidden_tag()}} <!-- important tag-->
+      <h5>Basic Details</h5>
+      <div class="basDet row">
+          <div class="col-lg-3 con1">
+              <p>{{ form.name.label() }}</p>
+              <p>{{ form.joining_date.label() }}</p>
+              <p>{{ form.employee_id.label() }}</p>
+              <p>{{ form.address_uae.label() }}</p>
+              <p>{{ form.po_box.label() }}</p>
+              <p>{{ form.mobile_p.label() }}</p>
+              <p>{{ form.mobile_h.label() }}</p>
+              <p>{{ form.personal_mail.label() }}</p>
+              <p>{{ form.address_home.label() }}</p>
+              <p>{{ form.passport_no.label() }}</p>
+              <p>{{ form.nationality.label() }}</p>
+              <p>{{ form.own_car.label() }}</p>
+              <p>{{ form.car_rent.label() }}</p>
+              <p>{{ form.company_laptop.label() }}</p>
+              <p>{{ form.company_mobile.label() }}</p>
+          </div>
+          <div class="col-lg-3">
+              <p>{{ form.name(value=data.name) }}</p>
+              <p>{{ form.joining_date(value=date_str) }}</p>
+              <p>{{ form.employee_id(value=data.employeeID) }}</p>
+              <p>{{ form.address_uae(value=data.addressUae) }}</p>
+              <p>{{ form.po_box(value=data.poBox) }}</p>
+              <p>{{ form.mobile_p(value=data.mobilePersonal) }}</p>
+              <p>{{ form.mobile_h(value=data.mobileHome) }}</p>
+              <p>{{ form.personal_mail(value=data.personalMail) }}</p>
+              <p>{{ form.address_home(value=data.addressHome) }}</p>
+              <p>{{ form.passport_no(value=data.passportNumber) }}</p>
+              <p>{{ form.nationality(value=data.nationality) }}</p>
+              <p>{{ form.own_car(value=data.ownCar) }}</p>
+              <p>{{ form.car_rent(value=data.carRent) }}</p>
+              <p>{{ form.company_laptop(value=data.company_laptop) }}</p>
+              <p>{{ form.company_mobile(value=data.company_mobile) }}</p>
+          </div>
+
+
+
+      </div>
+
+      <h5>Emergency Contact Details</h5>
+      <div class="emeCon row">
+
+        <div class="col-lg-3 con1">
+            <p>UAE</p>
+            <p>{{ form.e_uae_name.label() }}</p>
+            <p>{{ form.e_uae_rel.label() }}</p>
+            <p>{{ form.e_uae_addr.label() }}</p>
+            <p>{{ form.e_uae_mob.label() }}</p>
+            <p>{{ form.e_uae_hom.label() }}</p>
+        </div>
+        <div class="col-lg-3">
+            <p>Details</p>
+            <p>{{ form.e_uae_name(value=data.emUaeName) }}</p>
+            <p>{{ form.e_uae_rel(value=data.emUaeRel) }}</p>
+            <p>{{ form.e_uae_addr(value=data.emUaeAddr) }}</p>
+            <p>{{ form.e_uae_mob(value=data.emUaeMobileNumber) }}</p>
+            <p>{{ form.e_uae_hom(value=data.emUaeHomeNumber) }}</p>
+        </div>
+        <div class="col-lg-3 con2">
+              <p>{{ form.origin_country.label() }}</p>
+              <p>{{ form.e_co_name.label() }}</p>
+              <p>{{ form.e_co_rel.label() }}</p>
+              <p>{{ form.e_co_addr.label() }}</p>
+              <p>{{ form.e_co_mob.label() }}</p>
+              <p>{{ form.e_co_hom.label() }}</p>
+        </div>
+        <div class="col-lg-3">
+              <p>{{ form.origin_country(value=data.originCountry) }}</p>
+              <p>{{ form.e_co_name(value=data.emCoName) }}</p>
+              <p>{{ form.e_co_rel(value=data.emCoRel) }}</p>
+              <p>{{ form.e_co_addr(value=data.emCoAddr) }}</p>
+              <p>{{ form.e_co_mob(value=data.emCoMobileNumber) }}</p>
+              <p>{{ form.e_co_hom(value=data.emCoHomeNumber) }}</p>
+        </div>
+      </div>
+
+
+      <h5>{{ form.submit }}</h5>
+
+
+
+  </form>
+
+
+{% include "footer.html" %}
+{% endblock %}

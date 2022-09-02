@@ -1,0 +1,29 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Welcome to Dash Fix HR</h1>
+  <!-- buttons -->
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+    <div class="col-lg-6 buttonMain">
+      <form>
+        <button formaction="{{ url_for('login') }}" class="button" style="padding: 80px 92px;width: 70%;">Login</button>
+      </form>
+    </div>
+    <div class="col-lg-6 buttonMain">
+      <form>
+        <button formaction="{{ url_for('register') }}" class="button" style="padding: 80px 92px; width: 70%;">Admin Register</button>
+      </form>
+    </div>
+
+  </div>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

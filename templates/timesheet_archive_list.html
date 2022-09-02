@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Archives</h1>
+  <!-- buttons -->
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+    {% for i in len %}
+    <div class="col-lg-12">
+      <p>{{ i+1 }}|{{ ts[i].id }} | {{ ts[i].date }} | {{ hotels[i] }} <a href="{{url_for('timesheet_single', timesheet_id=ts[i].id)}}">View</a>--|--<a href="{{url_for('timesheet_single_edit', timesheet_id=ts[i].id)}}">Edit</a></p>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

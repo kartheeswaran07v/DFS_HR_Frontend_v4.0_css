@@ -1,0 +1,37 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h1 style="margin-top: 30px; margin-bottom: 100px; text-align: center;">Reports</h1>
+  <!-- buttons -->
+  <div class="row reports" style="margin-bottom-200px;">
+    <div class="col-lg-4 buttonMain">
+      <form>
+        <button formaction="{{url_for('employee_report')}}" class="button" style="padding: 50px 132px;">Employees</button>
+      </form>
+    </div>
+    <div class="col-lg-4 buttonMain">
+      <form>
+        <button formaction="http://stackoverflow.com" class="button" style="padding: 50px 132px;">Hotels</button>
+      </form>
+    </div>
+    <div class="col-lg-4 buttonMain">
+      <form>
+        <button formaction="http://stackoverflow.com" class="button" style="padding: 50px 132px;">Departments</button>
+      </form>
+    </div>
+
+  </div>
+
+
+
+{% include "footer.html" %}
+{% endblock %}

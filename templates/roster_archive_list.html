@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Archives</h1>
+  <!-- buttons -->
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+    {% for roster in rosters %}
+    <div class="col-lg-12">
+      <p>{{ roster.id }} | {{ roster.date }} <a href="{{url_for('roster_single', roster_id=roster.id)}}">View</a>--|--<a href="{{url_for('roster_single_edit', roster_id=roster.id)}}">Edit</a></p>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

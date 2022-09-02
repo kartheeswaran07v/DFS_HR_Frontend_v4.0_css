@@ -1,0 +1,36 @@
+
+{% block content %}
+{% include "header.html" %}
+    <div class="row">
+
+
+        <form action="/roster_date" method="post">
+            <label for="datepicker">Date: </label>
+            <input id="datepicker" name="date" />
+            <input type="submit">
+        </form>
+        <p>{{ msg }}</p>
+
+    </div>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
+   <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet" />
+   <script type="text/javascript">
+
+        var array = {{ array|tojson }}
+        var trima = []
+        for (i = 0; i < array.length; i++) {
+          trima.push(array[i].substring(10, ""))
+        }
+        $('#datepicker').datepicker({
+          beforeShowDay: function(date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [trima.indexOf(string) == -1]
+          }
+        });
+   </script>
+
+{% include "footer.html" %}
+{% endblock %}

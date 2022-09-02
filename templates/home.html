@@ -1,0 +1,57 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+      <div class="welcome">
+        <span>Dashfix </span>
+        <span>Welcome: xyz123</span>
+        <span><a href="{{ url_for('logout') }}">Log Out</a></span>
+      </div>
+
+      <!-- buttons -->
+      <div class="row">
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('registration') }}" class="button">New Registration</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('leave') }}" class="button">Leave Application</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('passport') }}" class="button">Passport Req. Form</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('timesheet') }}" class="button">Add Timesheet</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('roster_date') }}" class="button">Add Roster</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('reports') }}" class="button">Go to Reports</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('archives') }}" class="button">Archives</button>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

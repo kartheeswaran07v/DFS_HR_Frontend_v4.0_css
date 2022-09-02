@@ -1,0 +1,43 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Master Timesheet</h1>
+  <div class="masterTs" >
+      <div class="row">
+        <div class="col-lg-1 hahaha" style="border-style: solid;">
+          <p>Employee Name/Dates</p>
+        </div>
+        {% for i in dates %}
+        <div class="col-lg-1 hahaha" style="border-style: solid;">
+          <p>{{ i }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% for i in data %}
+      <div class="row">
+        <div class="col-lg-1 hahaha" style="border-style: solid;">
+          <p>{{ i.name }}</p>
+        </div>
+        {% for j in len %}
+        <div class="col-lg-1 hahaha" style="border-style: solid;">
+          <p>{{i.hours[j]}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+
+  <div class="reg_suc row">
+    <h1>Registration Successful</h1><br><br><br>
+    <h4>Employee ID: !@#$%^123</h4><br>
+    <h4>Employee Name: {{ name }}</h4><br><br><br>
+    <div class="col-lg-6 abut">
+      <form>
+        <button formaction="{{ url_for('home') }}">Home</button>
+      </form>
+    </div>
+    <div class="col-lg-6 bbut">
+      <form>
+        <button formaction="{{ url_for('registration') }}">New Registration</button>
+      </form>
+    </div>
+  </div>
+
+
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,226 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h2>Leave Application Form</h2>
+  <form action="" method="post">
+    {{form.hidden_tag()}} <!-- important tag-->
+
+    <!-- basic details -->
+    <div class="firstDet row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.date.label() }}</p>
+        <p>{{ form.name.label() }}</p>
+        <p>{{ form.company.label() }}</p>
+        <p>{{ form.dept.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.date }}</p>
+        <p>{{ form.name }}</p>
+        <p>{{ form.company }}</p>
+        <p>{{ form.dept }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.designation.label() }}</p>
+        <p>{{ form.nationality.label() }}</p>
+        <p>{{ form.pass_no.label() }}</p>
+        <p>{{ form.emp.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.designation }}</p>
+        <p>{{ form.nationality }}</p>
+        <p>{{ form.pass_no }}</p>
+        <p>{{ form.emp }}</p>
+      </div>
+    </div>
+
+    <!-- leave type -->
+
+    <h5>{{ form.leave_type.label() }}{{ form.leave_type }}</h5>
+
+    <!-- personal details -->
+    <h5>Section 1: Personal Details</h5>
+    <div class="persDet row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.addr_wol.label() }}</p>
+        <p>{{ form.con_per.label() }}</p>
+        <p>{{ form.rel.label() }}</p>
+        <p>{{ form.pol.label() }}</p>
+
+        <p>{{ form.dot.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.addr_wol }}</p>
+        <p>{{ form.con_per }}</p>
+        <p>{{ form.rel }}</p>
+        <p>{{ form.pol }}</p>
+
+        <p>{{ form.dot }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.con_wol.label() }}</p>
+        <p>{{ form.sub_emp.label() }}</p>
+        <p>{{ form.leave_f.label() }}</p>
+        <p>{{ form.leave_t.label() }}</p>
+        <p>{{ form.no_days.label() }}</p>
+        <p>{{ form.air_tic.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.con_wol }}</p>
+        <p>{{ form.sub_emp }}</p>
+        <p>{{ form.leave_f }}</p>
+        <p>{{ form.leave_t }}</p>
+        <p>{{ form.no_days }}</p>
+        <p>{{ form.air_tic }}</p>
+      </div>
+    </div>
+
+
+
+    <!-- Guarantors -->
+    <h5>Section 2: Guarantors</h5>
+    <div class="persDet row">
+      <div class="col-lg-12">
+        <p>
+          Please note you need to provide Two Guarantors, who will stand
+          Gurantee that you will reutnr ot work as per your due date
+        </p>
+      </div>
+      <div class="col-lg-3 con1">
+        <p>{{ form.g1_name.label() }}</p>
+        <p>{{ form.g1_dept.label() }}</p>
+        <p>{{ form.g1_id_no.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.g1_name }}</p>
+        <p>{{ form.g1_dept }}</p>
+        <p>{{ form.g1_id_no }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.g2_name.label() }}</p>
+        <p>{{ form.g2_dept.label() }}</p>
+        <p>{{ form.g2_id_no.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.g2_name }}</p>
+        <p>{{ form.g2_dept }}</p>
+        <p>{{ form.g2_id_no }}</p>
+      </div>
+      <div class="col-lg-12">
+        <p>
+          The above guarantors are responsible for the individuals return as per their due date, failing which you will ensure that the individual Passport is returned through you to HRD for necessary paper works in cancellation of visa and where necessary to provide all required documentation and payments requested by HRD for visa fees and cancellation fees and other advances or loans from the employee. By signing this you accept stand as a guarantee and HRD will have the authority to take all necessary action to ensure safety and security of the company.
+        </p>
+      </div>
+    </div>
+
+
+    <h2>For Official Use</h2>
+
+
+    <!-- hr department -->
+    <h5>Section 3: HR Department</h5>
+    <div class="hrDet row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.doj.label() }}</p>
+        <p>{{ form.tla.label() }}</p>
+        <p>{{ form.less_this.label() }}</p>
+        <p>{{ form.nod_app.label() }}</p>
+        <p>{{ form.dor.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.doj }}</p>
+        <p>{{ form.tla }}</p>
+        <p>{{ form.less_this }}</p>
+        <p>{{ form.nod_app }}</p>
+        <p>{{ form.dor }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.eligibility.label() }}</p>
+        <p>{{ form.last_leave.label() }}</p>
+        <p>{{ form.balance_leave.label() }}</p>
+        <p>{{ form.release_date.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.eligibility }}</p>
+        <p>{{ form.last_leave }}</p>
+        <p>{{ form.balance_leave }}</p>
+        <p>{{ form.release_date }}</p>
+      </div>
+    </div>
+
+
+    <!-- if leave not approved -->
+    <h5>Section 4: If Annual Leave is not Approved</h5>
+    <div class="noLeaveAp row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.amt_appr.label() }}</p>
+        <p>{{ form.cheq_no.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.amt_appr }}</p>
+        <p>{{ form.cheq_no }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.pbc.label() }}</p>
+        <p>{{ form.bank_tr.label() }}</p>
+        <p>{{ form.date_tr.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.pbc }}</p>
+        <p>{{ form.bank_tr }}</p>
+        <p>{{ form.date_tr }}</p>
+      </div>
+    </div>
+
+
+    <!-- approval-->
+    <h5>Section 5: Approval</h5>
+    <div class="appr row">
+
+      <div class="col-lg-3 con1">
+        <p>{{ form.approved_by.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.approved_by }}</p>
+      </div>
+      <div class="col-lg-3 con2">
+        <p>{{ form.approved_by_2.label() }}</p>
+      </div>
+      <div class="col-lg-3">
+        <p>{{ form.approved_by_2 }}</p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <h5>{{ form.submit }}</h5>
+
+
+
+  </form>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <div class="row">
+    <h2>Roster | Date: 24-06-2022</h2>
+    <form action="" method="post">
+      {{form.hidden_tag()}}
+      {{ form.csrf_token }}
+      <!-- important tag-->
+
+      <div id="divOutsideAddHotel">
+        <div class="hotel">
+          <div class="col-lg-6 con1">
+            {{form.hotel1.label()}}
+          </div>
+          <div class="col-lg-6">
+            {{form.hotel1}}
+          </div><br>
+          <div id="divOutsideAddStaff">
+            <!-- Time sheet details -->
+            <div class="firstDet row item1">
+              <div class="col-lg-6 con1">
+                {{form.name11.label()}}
+              </div>
+              <div class="col-lg-6">
+                {{form.name11}}
+              </div><br>
+              <div class="col-lg-3 con1">
+                {{form.time_a_11.label()}}
+              </div>
+              <div class="col-lg-3">
+                {{form.time_a_11}}
+              </div>
+              <div class="col-lg-3 con1">
+                {{form.time_b_11.label()}}
+              </div>
+              <div class="col-lg-3">
+                {{form.time_b_11}}
+              </div><br>
+              <div class="col-lg-3 con1">
+                {{form.time_c_11.label()}}
+              </div>
+              <div class="col-lg-3">
+                {{form.time_c_11}}
+              </div>
+              <div class="col-lg-3 con1">
+                {{form.time_d_11.label()}}
+              </div>
+              <div class="col-lg-3">
+                {{form.time_d_11}}
+              </div>
+              <div class="col-lg-3 con1">
+                {{form.pick_up_11.label()}}
+              </div>
+              <div class="col-lg-3">
+                {{form.pick_up_11}}
+              </div>
+              <div class="col-lg-3 con1">
+                {{form.remarks_11.label()}}
+              </div>
+              <div class="col-lg-3">
+                {{form.remarks_11}}
+              </div>
+          </div>
+        </div>
+        <div>
+          <h5>
+            <button type="button" name="button" id="addStaff1">Add Staff</button>
+          </h5>
+        </div>
+      </div>
+
+
+
+
+      <h5>
+        <div>
+          <button type="button" name="button" id="addHotel">Add Hotel</button>
+        </div>
+      </h5>
+      <div><h5><button type="button" name="button" id="addStaff2">Add Staff2</button></h5></div>
+      <div><h5><button type="button" name="button" id="addStaff3">Add Staff3</button></h5></div>
+
+      <h5>{{ form.submit }}</h5>
+
+    </form>
+  </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" >
+    $(function() {
+      $('#addStaff1').click(function() {
+        var numItems = $('.item1').length;
+        var newDiv1 = $('<div class="firstDet row item1"><div class="col-lg-6 con1">{{form.name11.label()}}</div><div class="col-lg-6">{{form.name11}}</div><br><div class="col-lg-3 con1">{{form.time_a_11.label()}}</div><div class="col-lg-3">{{form.time_a_11}}</div><div class="col-lg-3 con1">{{form.time_b_11.label()}}</div><div class="col-lg-3">{{form.time_b_11}}</div><br><div class="col-lg-3 con1">{{form.time_c_11.label()}}</div><div class="col-lg-3">{{form.time_c_11}}</div><div class="col-lg-3 con1">{{form.time_d_11.label()}}</div><div class="col-lg-3">{{form.time_d_11}}</div><div class="col-lg-3 con1">{{form.pick_up_11.label()}}</div><div class="col-lg-3">{{form.pick_up_11}}</div><div class="col-lg-3 con1">{{form.remarks_11.label()}}</div><div class="col-lg-3">{{form.remarks_11}}</div></div>');
+        var newDiv2 = $('<div class="firstDet row item1"><div class="col-lg-6 con1">{{form.name12.label()}}</div><div class="col-lg-6">{{form.name12}}</div><br><div class="col-lg-3 con1">{{form.time_a_12.label()}}</div><div class="col-lg-3">{{form.time_a_12}}</div><div class="col-lg-3 con1">{{form.time_b_12.label()}}</div><div class="col-lg-3">{{form.time_b_12}}</div><br><div class="col-lg-3 con1">{{form.time_c_12.label()}}</div><div class="col-lg-3">{{form.time_c_12}}</div><div class="col-lg-3 con1">{{form.time_d_12.label()}}</div><div class="col-lg-3">{{form.time_d_12}}</div><div class="col-lg-3 con1">{{form.pick_up_12.label()}}</div><div class="col-lg-3">{{form.pick_up_12}}</div><div class="col-lg-3 con1">{{form.remarks_12.label()}}</div><div class="col-lg-3">{{form.remarks_12}}</div></div>');
+        var newDiv3 = $('<div class="firstDet row item1"><div class="col-lg-6 con1">{{form.name13.label()}}</div><div class="col-lg-6">{{form.name13}}</div><br><div class="col-lg-3 con1">{{form.time_a_13.label()}}</div><div class="col-lg-3">{{form.time_a_13}}</div><div class="col-lg-3 con1">{{form.time_b_13.label()}}</div><div class="col-lg-3">{{form.time_b_13}}</div><br><div class="col-lg-3 con1">{{form.time_c_13.label()}}</div><div class="col-lg-3">{{form.time_c_13}}</div><div class="col-lg-3 con1">{{form.time_d_13.label()}}</div><div class="col-lg-3">{{form.time_d_13}}</div><div class="col-lg-3 con1">{{form.pick_up_13.label()}}</div><div class="col-lg-3">{{form.pick_up_13}}</div><div class="col-lg-3 con1">{{form.remarks_13.label()}}</div><div class="col-lg-3">{{form.remarks_13}}</div></div>');
+        var newDiv4 = $('<div class="firstDet row item1"><div class="col-lg-6 con1">{{form.name14.label()}}</div><div class="col-lg-6">{{form.name14}}</div><br><div class="col-lg-3 con1">{{form.time_a_14.label()}}</div><div class="col-lg-3">{{form.time_a_14}}</div><div class="col-lg-3 con1">{{form.time_b_14.label()}}</div><div class="col-lg-3">{{form.time_b_14}}</div><br><div class="col-lg-3 con1">{{form.time_c_14.label()}}</div><div class="col-lg-3">{{form.time_c_14}}</div><div class="col-lg-3 con1">{{form.time_d_14.label()}}</div><div class="col-lg-3">{{form.time_d_14}}</div><div class="col-lg-3 con1">{{form.pick_up_14.label()}}</div><div class="col-lg-3">{{form.pick_up_14}}</div><div class="col-lg-3 con1">{{form.remarks_14.label()}}</div><div class="col-lg-3">{{form.remarks_14}}</div></div>');
+        var newDiv5 = $('<div class="firstDet row item1"><div class="col-lg-6 con1">{{form.name15.label()}}</div><div class="col-lg-6">{{form.name15}}</div><br><div class="col-lg-3 con1">{{form.time_a_15.label()}}</div><div class="col-lg-3">{{form.time_a_15}}</div><div class="col-lg-3 con1">{{form.time_b_15.label()}}</div><div class="col-lg-3">{{form.time_b_15}}</div><br><div class="col-lg-3 con1">{{form.time_c_15.label()}}</div><div class="col-lg-3">{{form.time_c_15}}</div><div class="col-lg-3 con1">{{form.time_d_15.label()}}</div><div class="col-lg-3">{{form.time_d_15}}</div><div class="col-lg-3 con1">{{form.pick_up_15.label()}}</div><div class="col-lg-3">{{form.pick_up_15}}</div><div class="col-lg-3 con1">{{form.remarks_15.label()}}</div><div class="col-lg-3">{{form.remarks_15}}</div></div>');
+        var newDiv6 = $('<div class="firstDet row item1"><div class="col-lg-6 con1">{{form.name16.label()}}</div><div class="col-lg-6">{{form.name16}}</div><br><div class="col-lg-3 con1">{{form.time_a_16.label()}}</div><div class="col-lg-3">{{form.time_a_16}}</div><div class="col-lg-3 con1">{{form.time_b_16.label()}}</div><div class="col-lg-3">{{form.time_b_16}}</div><br><div class="col-lg-3 con1">{{form.time_c_16.label()}}</div><div class="col-lg-3">{{form.time_c_16}}</div><div class="col-lg-3 con1">{{form.time_d_16.label()}}</div><div class="col-lg-3">{{form.time_d_16}}</div><div class="col-lg-3 con1">{{form.pick_up_16.label()}}</div><div class="col-lg-3">{{form.pick_up_16}}</div><div class="col-lg-3 con1">{{form.remarks_16.label()}}</div><div class="col-lg-3">{{form.remarks_16}}</div></div>');
+
+        var divArray = [newDiv1, newDiv2, newDiv3, newDiv4, newDiv5, newDiv6]
+
+
+        $('#divOutsideAddStaff').append(divArray[numItems]);
+      });
+    });
+  </script>
+  <script type="text/javascript">
+
+    $(function() {
+      $('#addStaff2').click(function() {
+        var numItems = ($('.item2').length );
+        var newDiv7 = $('<div class="firstDet row item2"><div class="col-lg-6 con1">{{form.name21.label()}}</div><div class="col-lg-6">{{form.name21}}</div><br><div class="col-lg-3 con1">{{form.time_a_21.label()}}</div><div class="col-lg-3">{{form.time_a_21}}</div><div class="col-lg-3 con1">{{form.time_b_21.label()}}</div><div class="col-lg-3">{{form.time_b_21}}</div><br><div class="col-lg-3 con1">{{form.time_c_21.label()}}</div><div class="col-lg-3">{{form.time_c_21}}</div><div class="col-lg-3 con1">{{form.time_d_21.label()}}</div><div class="col-lg-3">{{form.time_d_21}}</div><div class="col-lg-3 con1">{{form.pick_up_21.label()}}</div><div class="col-lg-3">{{form.pick_up_21}}</div><div class="col-lg-3 con1">{{form.remarks_21.label()}}</div><div class="col-lg-3">{{form.remarks_21}}</div></div>');
+        var newDiv8 = $('<div class="firstDet row item2"><div class="col-lg-6 con1">{{form.name22.label()}}</div><div class="col-lg-6">{{form.name22}}</div><br><div class="col-lg-3 con1">{{form.time_a_22.label()}}</div><div class="col-lg-3">{{form.time_a_22}}</div><div class="col-lg-3 con1">{{form.time_b_22.label()}}</div><div class="col-lg-3">{{form.time_b_22}}</div><br><div class="col-lg-3 con1">{{form.time_c_22.label()}}</div><div class="col-lg-3">{{form.time_c_22}}</div><div class="col-lg-3 con1">{{form.time_d_22.label()}}</div><div class="col-lg-3">{{form.time_d_22}}</div><div class="col-lg-3 con1">{{form.pick_up_22.label()}}</div><div class="col-lg-3">{{form.pick_up_22}}</div><div class="col-lg-3 con1">{{form.remarks_22.label()}}</div><div class="col-lg-3">{{form.remarks_22}}</div></div>');
+        var newDiv9 = $('<div class="firstDet row item2"><div class="col-lg-6 con1">{{form.name23.label()}}</div><div class="col-lg-6">{{form.name23}}</div><br><div class="col-lg-3 con1">{{form.time_a_23.label()}}</div><div class="col-lg-3">{{form.time_a_23}}</div><div class="col-lg-3 con1">{{form.time_b_23.label()}}</div><div class="col-lg-3">{{form.time_b_23}}</div><br><div class="col-lg-3 con1">{{form.time_c_23.label()}}</div><div class="col-lg-3">{{form.time_c_23}}</div><div class="col-lg-3 con1">{{form.time_d_23.label()}}</div><div class="col-lg-3">{{form.time_d_23}}</div><div class="col-lg-3 con1">{{form.pick_up_23.label()}}</div><div class="col-lg-3">{{form.pick_up_23}}</div><div class="col-lg-3 con1">{{form.remarks_23.label()}}</div><div class="col-lg-3">{{form.remarks_23}}</div></div>');
+        var newDiv10 = $('<div class="firstDet row item2"><div class="col-lg-6 con1">{{form.name24.label()}}</div><div class="col-lg-6">{{form.name24}}</div><br><div class="col-lg-3 con1">{{form.time_a_24.label()}}</div><div class="col-lg-3">{{form.time_a_24}}</div><div class="col-lg-3 con1">{{form.time_b_24.label()}}</div><div class="col-lg-3">{{form.time_b_24}}</div><br><div class="col-lg-3 con1">{{form.time_c_24.label()}}</div><div class="col-lg-3">{{form.time_c_24}}</div><div class="col-lg-3 con1">{{form.time_d_24.label()}}</div><div class="col-lg-3">{{form.time_d_24}}</div><div class="col-lg-3 con1">{{form.pick_up_24.label()}}</div><div class="col-lg-3">{{form.pick_up_24}}</div><div class="col-lg-3 con1">{{form.remarks_24.label()}}</div><div class="col-lg-3">{{form.remarks_24}}</div></div>');
+        var newDiv11 = $('<div class="firstDet row item2"><div class="col-lg-6 con1">{{form.name25.label()}}</div><div class="col-lg-6">{{form.name25}}</div><br><div class="col-lg-3 con1">{{form.time_a_25.label()}}</div><div class="col-lg-3">{{form.time_a_25}}</div><div class="col-lg-3 con1">{{form.time_b_25.label()}}</div><div class="col-lg-3">{{form.time_b_25}}</div><br><div class="col-lg-3 con1">{{form.time_c_25.label()}}</div><div class="col-lg-3">{{form.time_c_25}}</div><div class="col-lg-3 con1">{{form.time_d_25.label()}}</div><div class="col-lg-3">{{form.time_d_25}}</div><div class="col-lg-3 con1">{{form.pick_up_25.label()}}</div><div class="col-lg-3">{{form.pick_up_25}}</div><div class="col-lg-3 con1">{{form.remarks_25.label()}}</div><div class="col-lg-3">{{form.remarks_25}}</div></div>');
+        var newDiv12 = $('<div class="firstDet row item2"><div class="col-lg-6 con1">{{form.name26.label()}}</div><div class="col-lg-6">{{form.name26}}</div><br><div class="col-lg-3 con1">{{form.time_a_26.label()}}</div><div class="col-lg-3">{{form.time_a_26}}</div><div class="col-lg-3 con1">{{form.time_b_26.label()}}</div><div class="col-lg-3">{{form.time_b_26}}</div><br><div class="col-lg-3 con1">{{form.time_c_26.label()}}</div><div class="col-lg-3">{{form.time_c_26}}</div><div class="col-lg-3 con1">{{form.time_d_26.label()}}</div><div class="col-lg-3">{{form.time_d_26}}</div><div class="col-lg-3 con1">{{form.pick_up_26.label()}}</div><div class="col-lg-3">{{form.pick_up_26}}</div><div class="col-lg-3 con1">{{form.remarks_26.label()}}</div><div class="col-lg-3">{{form.remarks_26}}</div></div>');
+
+        var divArray = [newDiv7, newDiv8, newDiv9, newDiv10, newDiv11, newDiv12]
+
+
+        $('#divOutsideAddStaff1').append(divArray[numItems]);
+      });
+    });
+
+    $(function() {
+      $('#addStaff3').click(function() {
+        var numItems = ($('.item3').length);
+        var newDiv13 = $('<div class="firstDet row item3"><div class="col-lg-6 con1">{{form.name31.label()}}</div><div class="col-lg-6">{{form.name31}}</div><br><div class="col-lg-3 con1">{{form.time_a_31.label()}}</div><div class="col-lg-3">{{form.time_a_31}}</div><div class="col-lg-3 con1">{{form.time_b_31.label()}}</div><div class="col-lg-3">{{form.time_b_31}}</div><br><div class="col-lg-3 con1">{{form.time_c_31.label()}}</div><div class="col-lg-3">{{form.time_c_31}}</div><div class="col-lg-3 con1">{{form.time_d_31.label()}}</div><div class="col-lg-3">{{form.time_d_31}}</div><div class="col-lg-3 con1">{{form.pick_up_31.label()}}</div><div class="col-lg-3">{{form.pick_up_31}}</div><div class="col-lg-3 con1">{{form.remarks_31.label()}}</div><div class="col-lg-3">{{form.remarks_31}}</div></div>');
+        var newDiv14 = $('<div class="firstDet row item3"><div class="col-lg-6 con1">{{form.name32.label()}}</div><div class="col-lg-6">{{form.name32}}</div><br><div class="col-lg-3 con1">{{form.time_a_32.label()}}</div><div class="col-lg-3">{{form.time_a_32}}</div><div class="col-lg-3 con1">{{form.time_b_32.label()}}</div><div class="col-lg-3">{{form.time_b_32}}</div><br><div class="col-lg-3 con1">{{form.time_c_32.label()}}</div><div class="col-lg-3">{{form.time_c_32}}</div><div class="col-lg-3 con1">{{form.time_d_32.label()}}</div><div class="col-lg-3">{{form.time_d_32}}</div><div class="col-lg-3 con1">{{form.pick_up_32.label()}}</div><div class="col-lg-3">{{form.pick_up_32}}</div><div class="col-lg-3 con1">{{form.remarks_32.label()}}</div><div class="col-lg-3">{{form.remarks_32}}</div></div>');
+        var newDiv15 = $('<div class="firstDet row item3"><div class="col-lg-6 con1">{{form.name33.label()}}</div><div class="col-lg-6">{{form.name33}}</div><br><div class="col-lg-3 con1">{{form.time_a_33.label()}}</div><div class="col-lg-3">{{form.time_a_33}}</div><div class="col-lg-3 con1">{{form.time_b_33.label()}}</div><div class="col-lg-3">{{form.time_b_33}}</div><br><div class="col-lg-3 con1">{{form.time_c_33.label()}}</div><div class="col-lg-3">{{form.time_c_33}}</div><div class="col-lg-3 con1">{{form.time_d_33.label()}}</div><div class="col-lg-3">{{form.time_d_33}}</div><div class="col-lg-3 con1">{{form.pick_up_33.label()}}</div><div class="col-lg-3">{{form.pick_up_33}}</div><div class="col-lg-3 con1">{{form.remarks_33.label()}}</div><div class="col-lg-3">{{form.remarks_33}}</div></div>');
+        var newDiv16 = $('<div class="firstDet row item3"><div class="col-lg-6 con1">{{form.name34.label()}}</div><div class="col-lg-6">{{form.name34}}</div><br><div class="col-lg-3 con1">{{form.time_a_34.label()}}</div><div class="col-lg-3">{{form.time_a_34}}</div><div class="col-lg-3 con1">{{form.time_b_34.label()}}</div><div class="col-lg-3">{{form.time_b_34}}</div><br><div class="col-lg-3 con1">{{form.time_c_34.label()}}</div><div class="col-lg-3">{{form.time_c_34}}</div><div class="col-lg-3 con1">{{form.time_d_34.label()}}</div><div class="col-lg-3">{{form.time_d_34}}</div><div class="col-lg-3 con1">{{form.pick_up_34.label()}}</div><div class="col-lg-3">{{form.pick_up_34}}</div><div class="col-lg-3 con1">{{form.remarks_34.label()}}</div><div class="col-lg-3">{{form.remarks_34}}</div></div>');
+        var newDiv17 = $('<div class="firstDet row item3"><div class="col-lg-6 con1">{{form.name35.label()}}</div><div class="col-lg-6">{{form.name35}}</div><br><div class="col-lg-3 con1">{{form.time_a_35.label()}}</div><div class="col-lg-3">{{form.time_a_35}}</div><div class="col-lg-3 con1">{{form.time_b_35.label()}}</div><div class="col-lg-3">{{form.time_b_35}}</div><br><div class="col-lg-3 con1">{{form.time_c_35.label()}}</div><div class="col-lg-3">{{form.time_c_35}}</div><div class="col-lg-3 con1">{{form.time_d_35.label()}}</div><div class="col-lg-3">{{form.time_d_35}}</div><div class="col-lg-3 con1">{{form.pick_up_35.label()}}</div><div class="col-lg-3">{{form.pick_up_35}}</div><div class="col-lg-3 con1">{{form.remarks_35.label()}}</div><div class="col-lg-3">{{form.remarks_35}}</div></div>');
+        var newDiv18 = $('<div class="firstDet row item3"><div class="col-lg-6 con1">{{form.name36.label()}}</div><div class="col-lg-6">{{form.name36}}</div><br><div class="col-lg-3 con1">{{form.time_a_36.label()}}</div><div class="col-lg-3">{{form.time_a_36}}</div><div class="col-lg-3 con1">{{form.time_b_36.label()}}</div><div class="col-lg-3">{{form.time_b_36}}</div><br><div class="col-lg-3 con1">{{form.time_c_36.label()}}</div><div class="col-lg-3">{{form.time_c_36}}</div><div class="col-lg-3 con1">{{form.time_d_36.label()}}</div><div class="col-lg-3">{{form.time_d_36}}</div><div class="col-lg-3 con1">{{form.pick_up_36.label()}}</div><div class="col-lg-3">{{form.pick_up_36}}</div><div class="col-lg-3 con1">{{form.remarks_36.label()}}</div><div class="col-lg-3">{{form.remarks_36}}</div></div>');
+
+        var divArray = [newDiv13, newDiv14, newDiv15, newDiv16, newDiv17, newDiv18]
+
+
+        $('#divOutsideAddStaff2').append(divArray[numItems]);
+      });
+    });
+
+    $(function() {
+      $('#addHotel').click(function() {
+        var numItems = $('.hotel').length;
+        var numStr = numItems.toString();
+        var newDiva = $('<div class="hotel"><div class="col-lg-6 con1">{{form.hotel1.label()}}</div><div class="col-lg-6">{{form.hotel1}}</div><br><div id="divOutsideAddStaff"></div><div><h5><button type="button" name="button" id="addStaff1">Add Staff</button></h5></div></div>');
+        var newDivb = $('<div class="hotel"><div class="col-lg-6 con1">{{form.hotel2.label()}}</div><div class="col-lg-6">{{form.hotel2}}</div><br><div id="divOutsideAddStaff1"></div></div>');
+        var newDivc = $('<div class="hotel"><div class="col-lg-6 con1">{{form.hotel3.label()}}</div><div class="col-lg-6">{{form.hotel3}}</div><br><div id="divOutsideAddStaff2"></div></div>');
+
+        var divArray = [newDiva, newDivb, newDivc]
+
+
+        $('#divOutsideAddHotel').append(divArray[numItems]);
+      });
+    });
+  </script>
+
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

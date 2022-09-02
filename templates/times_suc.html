@@ -1,0 +1,78 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  {% if data.name1 != None and data.name2 != None and data.name3 != None and data.name4 != None and data.name5 != None %}
+    <h1 style="text-align: center;">Timesheet Successfully Added</h1>
+  {% else %}
+    <h1 style="text-align: center;">Timesheet Error: 1234</h1>
+  {% endif %}
+
+  <h2>Date: {{data.date}}     |      Sheet No.: {{data.sheet_no}}      |      Hotel: {{data.hotel}}</h2>
+
+  <div class="time_suc_entry row" style="text-align: center;">
+    <div class="col-lg-12">
+      {% if data.name1 != None and data.name2 != None and data.name3 != None and data.name4 != None and data.name5 != None %}
+        <p> <em>1. Name:</em> {{data.name1}}      <em>Time In: </em>{{data.time_in1}}     <em>Time Out:</em> {{data.time_out1}}     <em>No. of Hours:</em> {{data.hours1}}</p>
+        <p> 2. Name: {{data.name2}}      Time In: {{data.time_in2}}     Time Out: {{data.time_out2}}     No. of Hours: {{data.hours2}}</p>
+        <p> 3. Name: {{data.name3}}      Time In: {{data.time_in3}}     Time Out: {{data.time_out3}}     No. of Hours: {{data.hours3}}</p>
+        <p> 4. Name: {{data.name4}}      Time In: {{data.time_in4}}     Time Out: {{data.time_out4}}     No. of Hours: {{data.hours4}}</p>
+        <p> 5. Name: {{data.name5}}      Time In: {{data.time_in5}}     Time Out: {{data.time_out5}}     No. of Hours: {{data.hours5}}</p>
+      {% else %}
+        {% if data.name1 != None: %}
+          <p> 1. Name: {{data.name1}}      Time In: {{data.time_in1}}     Time Out: {{data.time_out1}}     No. of Hours: {{data.hours1}}</p>
+        {% endif %}
+        {% if data.name2 != None: %}
+          <p> 2. Name: {{data.name2}}      Time In: {{data.time_in2}}     Time Out: {{data.time_out2}}     No. of Hours: {{data.hours2}}</p>
+        {% endif %}
+        {% if data.name3 != None: %}
+          <p> 3. Name: {{data.name3}}      Time In: {{data.time_in3}}     Time Out: {{data.time_out3}}     No. of Hours: {{data.hours3}}</p>
+        {% endif %}
+        {% if data.name4 != None: %}
+          <p> 4. Name: {{data.name4}}      Time In: {{data.time_in4}}     Time Out: {{data.time_out4}}     No. of Hours: {{data.hours4}}</p>
+        {% endif %}
+        {% if data.name5 != None: %}
+          <p> 5. Name: {{data.name5}}      Time In: {{data.time_in5}}     Time Out: {{data.time_out5}}     No. of Hours: {{data.hours5}}</p>
+        {% endif %}
+        <h5>You did not add all the users</h5>
+      {% endif %}
+    </div>
+
+
+
+    {% if data.name1 != None and data.name2 != None and data.name3 != None and data.name4 != None and data.name5 != None %}
+      <div class="col-lg-6">
+        <form>
+          <button formaction="{{url_for('home')}}">Home</button>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <form>
+          <button formaction="{{url_for('timesheet')}}">New Timesheet</button>
+        </form>
+      </div>
+    {% else %}
+      <div style="text-align: center;" class="col-lg" >
+        <form>
+          <button formaction="{{url_for('timesheet')}}">Edit Timesheet</button>
+        </form>
+      </div>
+    {% endif %}
+
+  </div>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}
+

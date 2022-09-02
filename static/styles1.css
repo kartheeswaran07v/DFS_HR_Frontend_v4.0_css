@@ -1,0 +1,168 @@
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+.content {
+  margin-top: 200px;
+  font-size: 2rem;
+  margin-bottom: 190px;
+}
+
+.btn {
+ font-size: 2rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* for home page */
+
+body {
+  background-color: #F6E3C5;
+}
+
+.welcome {
+  background-color: #6CC4A1;
+  display: flex;
+  justify-content: space-between;
+    padding: 20px;
+  font-size: 2rem;
+
+}
+
+.row, h5 {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+
+.buttonMain {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  width: 100%;
+  color: white;
+  padding: 95px 132px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* registration */
+
+.basDet {
+  background-color: #D8CCA3;
+
+}
+
+.emeCon {
+  background-color: #ADCF9F;
+}
+
+.upload {
+  background-color: #D8CCA3;
+}
+
+h5 {
+  font-size: 1.7rem;
+}
+
+div {
+  font-size: 1.3rem;
+  margin: 0px;
+  padding-right: 0px;
+}
+
+.con1, .con2 {
+  text-align: right;
+}
+
+/* reg success */
+.reg_suc {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 200px;
+
+}
+
+
+.abut {
+  text-align: right;
+}
+
+.abut button {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+
+}
+
+.bbut {
+  text-align: left;
+}
+
+.bbut button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+/*
+input[type="datetime"] {
+ width: 100px;
+}
+*/
+
+/*timesheet success*/
+
+.time_suc_entry, p {
+  text-size: 1.8rem;
+}
+
+
+.firstDet {
+  background-color: #CEE5D0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#divOutsideAddHotel, #divOutsideAddHotel2, #divOutsideAddHotel3 {
+  background-color: #F37878;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.hasDatepicker{ z-index:99999 !important; }?
+#datepicker{ z-index:99999 !important; }?
+
+.hahaha {
+  border-style: dashed;
+  font-size: 0.75rem;
+  border: 5px solid red;
+}
+
+.upload {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

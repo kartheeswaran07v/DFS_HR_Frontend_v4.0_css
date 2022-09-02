@@ -1,0 +1,33 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+      <h3>{{ employee.employeeID }} |  {{employee.name}} | {{date_str}} | {{employee.addressUae}}</h3>
+      <img src="{{img_url}}" alt="Profile pic" style="width: 20%;">
+
+  </div>
+
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+      <p>Worked Hours: {{ workedHours }}</p>
+  </div>
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+      <p>Profile Completion: {{ profile }}%</p>
+  </div>
+
+  {% for item in items %}
+    <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;" >
+      <p>{{ item.id }} | {{ item.actionText }} <a href="{{url_for('action_item_del', entry_id=item.id)}}">X</a></p>
+    </div>
+  {% endfor %}
+
+  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
+      {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+  </div>
+
+
+
+{% include "footer.html" %}
+{% endblock %}
