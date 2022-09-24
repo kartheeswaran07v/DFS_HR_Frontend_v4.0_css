@@ -369,12 +369,12 @@ db.create_all()
 
 
 # Website routes
-@app.route('/admin-register', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def cover():
     return render_template("index.html")
 
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/admin-register', methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
