@@ -9,16 +9,32 @@
     <span>Welcome: xyz123</span>
   </div>
 
-  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Archives</h1>
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Timesheet Entry</h1>
   <!-- buttons -->
-  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
-    <div class="col-lg-12">
-      <h2>{{ sheet }} --- | --- {{ date__ }}</h2>
-    </div>
+
+  <div class="row" style="margin-bottom: 50px; margin-left: 50px; text-align: center;">
+    <div class="col-6"><h1>Sheet No.: {{ sheet }}</h1></div>
+    <div class="col-6"><h1>Timesheet Date: {{ date__ }}</h1></div>
+  </div>
+
+
+  <div class="row" style="margin-bottom: 50px; margin-left: 150px; text-align: center;">
+    <div class="col-2"><h3>S. No.</h3></div>
+    <div class="col-3"><h3>Staff</h3></div>
+    <div class="col-3"><h3>Hotel</h3></div>
+    <div class="col-3"><h3>Duty Time</h3></div>
+  </div>
+
+  <div class="row" style="margin-bottom: 50px; margin-left: 150px; text-align: center;">
     {% for i in len %}
-    <div class="col-lg-12">
-      <p>{{ i + 1 }} | {{ employees[i] }} | {{ hotel_name }} | {{ entries[i].timeIn1 }} | {{ entries[i].timeOut1 }} | {{ entries[i].timeIn2 }} | {{ entries[i].timeOut2 }} </p>
-    </div>
+      <div class="col-2"><p>{{ i + 1 }}</p></div>
+      <div class="col-3"><p>{{ employees[i] }}</p></div>
+      <div class="col-3"><p>{{ hotel_name }}</p></div>
+      {% if entries[i].timeIn2 == 0 %}
+        <div class="col-3"><p>{{ entries[i].timeIn1 }} - {{ entries[i].timeOut1 }}</p></div>
+      {% else %}
+        <div class="col-3"><p>{{ entries[i].timeIn1 }} - {{ entries[i].timeOut1 }}/{{ entries[i].timeIn2 }} - {{ entries[i].timeOut2 }}</p></div>
+      {% endif %}
     {% endfor %}
   </div>
 

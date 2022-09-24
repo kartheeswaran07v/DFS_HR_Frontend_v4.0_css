@@ -39,6 +39,16 @@
         </div>
         <div class="col-lg-4 buttonMain">
           <form>
+            <button formaction="{{ url_for('add_hotel') }}" class="button">Add Hotel</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
+            <button formaction="{{ url_for('add_department') }}" class="button">Add Dept.</button>
+          </form>
+        </div>
+        <div class="col-lg-4 buttonMain">
+          <form>
             <button formaction="{{ url_for('reports') }}" class="button">Go to Reports</button>
           </form>
         </div>

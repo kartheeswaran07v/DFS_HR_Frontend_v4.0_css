@@ -20,11 +20,11 @@ footer {
 /* for home page */
 
 body {
-  background-color: #F6E3C5;
+  background-color: #bbd1da;
 }
 
 .welcome {
-  background-color: #6CC4A1;
+  background-color: #afb0ad;
   display: flex;
   justify-content: space-between;
     padding: 20px;
@@ -45,10 +45,10 @@ body {
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #3d5561; /* Green */
   border: none;
   width: 100%;
-  color: white;
+  color: #b1bcae;
   padding: 95px 132px;
   text-align: center;
   text-decoration: none;
@@ -59,16 +59,15 @@ body {
 /* registration */
 
 .basDet {
-  background-color: #D8CCA3;
-
+  background-color: #bbd1da;
 }
 
 .emeCon {
-  background-color: #ADCF9F;
+  background-color: #60b4f0;
 }
 
 .upload {
-  background-color: #D8CCA3;
+  background-color: #bbd1da;
 }
 
 h5 {
@@ -103,9 +102,9 @@ div {
   padding-right: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #4CAF50; /* Green */
+  background-color: #3d5561; /* Green */
   border: none;
-  color: white;
+  color: #b1bcae;
 
 }
 
@@ -116,9 +115,9 @@ div {
 .bbut button {
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #4CAF50; /* Green */
+  background-color:#3d5561; /* Green */
   border: none;
-  color: white;
+  color: #b1bcae;
 }
 
 h2 {
@@ -140,13 +139,13 @@ input[type="datetime"] {
 
 
 .firstDet {
-  background-color: #CEE5D0;
+  background-color: #f2f6f5;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 #divOutsideAddHotel, #divOutsideAddHotel2, #divOutsideAddHotel3 {
-  background-color: #F37878;
+  background-color: #6f6f6d;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 10px;
@@ -165,4 +164,17 @@ input[type="datetime"] {
 .upload {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+a:link {
+  text-decoration: none;
+  text-color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

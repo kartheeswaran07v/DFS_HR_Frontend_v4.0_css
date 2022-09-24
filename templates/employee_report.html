@@ -35,19 +35,28 @@
   </div>
 
   <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Employees</h1>
-  <!-- buttons -->
-  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
-    {% for i in len %}
-    <div class="col-lg-12">
-      <p>{{ ts[i].employeeID }} | {{ ts[i].name }} | {{ departments[i] }} <a href="{{url_for('employee_view', employee_id=ts[i].id)}}">View</a>--|--<a href="{{url_for('employee_edit', employee_id=ts[i].id)}}">Edit</a></p>
-    </div>
-    {% endfor %}
-  </div>
 
-  <div style="margin: 10px 0 0 10px;width: 1000px">
+  <div class="row" style="margin-bottom: 50px; margin-left: 30px; font-size: 1.5rem; text-align: center;">
+    <div class="col-2"><p><em>Employee ID</em></p></div>
+    <div class="col-2"><p><em>Name</em></p></div>
+    <div class="col-2"><p><em>Department</em></p></div>
+    <div class="col-3"><p><em>View</em></p></div>
+    <div class="col-3"><p><em>Edit</em></p></div>
+  </div>
+  {% for i in len %}
+      <div class="row" style="margin-bottom: 50px; margin-left: 30px; text-align: center;">
+        <div class="col-2"><p>{{ ts[i].employeeID }}</p></div>
+        <div class="col-2"><p>{{ ts[i].name }}</p></div>
+        <div class="col-2"><p>{{ departments[i] }}</p></div>
+        <div class="col-3"><p><a href="{{url_for('employee_view', employee_id=ts[i].id)}}">View</a></p></div>
+        <div class="col-3"><p><a href="{{url_for('employee_edit', employee_id=ts[i].id)}}">Edit</a></p></div>
+      </div>
+  {% endfor %}
+
+  <div style="margin: 50px 20px 0 10px;width: 1000px;margin-bottom: 50px; margin-left: 75px;">
       <h3>Absent v. Present</h3>
 
-      <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+      <div id="piechart_3d" style="width: 450px; height: 250px;"></div>
   </div>
 
 

@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+  <div class="welcome">
+    <span>Dashfix | <a href="{{url_for('home')}}">Home</a></span>
+    <span>Welcome: xyz123</span>
+  </div>
+
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Add Hotel</h1>
+  <!-- buttons -->
+
+  </div>
+  <form action="/add_department" method="post">
+      <div class="row" style="margin-bottom: 100px;">
+          <div class="col-2 abut">
+              <label for="name">Department Name: </label>
+          </div>
+          <div class="col-2 bbut">
+              <input type="text" id="name" name="name">
+          </div>
+          <div class="col-2">
+              <button type="submit">Add Department</button>
+          </div>
+      </div>
+
+  </form>
+
+
+
+
+{% include "footer.html" %}
+{% endblock %}

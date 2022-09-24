@@ -9,15 +9,23 @@
     <span>Welcome: xyz123</span>
   </div>
 
-  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Archives</h1>
-  <!-- buttons -->
-  <div class="row reports" style="margin-bottom: 50px; margin-left: 150px;">
-    {% for roster in rosters %}
-    <div class="col-lg-12">
-      <p>{{ roster.id }} | {{ roster.date }} <a href="{{url_for('roster_single', roster_id=roster.id)}}">View</a>--|--<a href="{{url_for('roster_single_edit', roster_id=roster.id)}}">Edit</a></p>
-    </div>
-    {% endfor %}
+  <h1 style="margin-top: 30px; margin-bottom: 50px; text-align: center;">Roster Archives</h1>
+
+
+  <div class="row" style="margin-bottom: 50px; margin-left: 100px; text-align: center;">
+    <div class="col-2"><h3>S. No. </h3></div>
+    <div class="col-2"><h3>Roster Date</h3></div>
+    <div class="col-2"><h3>View RT</h3></div>
+    <div class="col-2"><h3>Edit RT</h3></div>
   </div>
+  {% for i in len %}
+    <div class="row" style="margin-bottom: 30px; margin-left: 100px; text-align: center;">
+      <div class="col-2"><p>{{ i+1 }}</p></div>
+      <div class="col-2"><p>{{ rosters[i].date }}</p></div>
+      <div class="col-2"><p><a href="{{url_for('roster_single', roster_id=rosters[i].id)}}">View</a></p></div>
+      <div class="col-2"><p><a href="{{url_for('roster_single_edit', roster_id=rosters[i].id)}}">Edit</a></p></div>
+    </div>
+  {% endfor %}
 
 
 

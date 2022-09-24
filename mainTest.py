@@ -503,7 +503,8 @@ def doc():
         os.mkdir(path)
 
         files = request.files.getlist("file")  # other multiple files
-        photo = request.form.get('photo')  # photo file
+        photo = request.files.get('photo')  # photo file
+        photo.save(os.path.join(app.config['../static/images/'], photo.filename))
         UPLOAD_FOLDER = f"{home_directory}/{directory}"
         app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
         for file in files:
@@ -741,7 +742,49 @@ def roster_date():
         else:
             return render_template("roster_date.html", array=dates_list, msg="Choose a date to continue")
 
-    return render_template("roster_date.html", array=dates_list, msg="None")
+    return render_template("roster_date.html", array=dates_list, msg="")
+
+
+# Hotel report
+@app.route("/add_hotel", methods=["GET", "POST"])
+# Mark with decorator
+@admin_only
+def add_hotel():
+    if request.method == "POST":
+        new_hotel = hotelMaster(name=request.form.get('name'), address=request.form.get('address'))
+        db.session.add(new_hotel)
+        db.session.commit()
+        return redirect(url_for("hotel_report"))
+    return render_template("add_hotel.html")
+
+
+@app.route("/hotel_report", methods=["GET", "POST"])
+# Mark with decorator
+@admin_only
+def hotel_report():
+    hotel_list = hotelMaster.query.all()
+    return render_template("hotel_report.html", ts=hotel_list, len=range(len(hotel_list)))
+
+
+# Department Report
+@app.route("/add_department", methods=["GET", "POST"])
+# Mark with decorator
+@admin_only
+def add_department():
+    if request.method == "POST":
+        new_department = departmentMaster(name=request.form.get('name'))
+        db.session.add(new_department)
+        db.session.commit()
+        return redirect(url_for("department_report"))
+    return render_template("add_dept.html")
+
+
+@app.route("/department_report", methods=["GET", "POST"])
+# Mark with decorator
+@admin_only
+def department_report():
+    hotel_list = departmentMaster.query.all()
+    return render_template("department_report.html", ts=hotel_list, len=range(len(hotel_list)))
 
 
 @app.route("/reports", methods=["GET", "POST"])
@@ -780,7 +823,8 @@ def archives():
                     if not roster_element:
                         hours = "N/A"
                     else:
-                        rs_entry_element = db.session.query(rosterEntryMaster).filter_by(employeeID=employee_list[i].id, rosterID=roster_element.id).first()
+                        rs_entry_element = db.session.query(rosterEntryMaster).filter_by(employeeID=employee_list[i].id,
+                                                                                         rosterID=roster_element.id).first()
                         if (not rs_entry_element) or (rs_entry_element.absent == "none"):
                             hours = "N/A"
                         else:
@@ -789,7 +833,7 @@ def archives():
 
                 else:
                     hours = ts_entry_element.timeOut1 - ts_entry_element.timeIn1 + ts_entry_element.timeOut2 - ts_entry_element.timeIn2
-                    print(ts_entry_element.timeOut1)
+                    # print(ts_entry_element.timeOut1)
 
                 ms_dict['hours'].append(hours)
             master_ts_list.append(ms_dict)
@@ -803,7 +847,7 @@ def archives():
 @admin_only
 def roster_archive():
     rosters_list = rosterMaster.query.all()
-    return render_template("roster_archive_list.html", rosters=rosters_list)
+    return render_template("roster_archive_list.html", rosters=rosters_list, len=range(len(rosters_list)))
 
 
 @app.route("/roster_single/<roster_id>", methods=["GET", "POST"])
@@ -811,6 +855,10 @@ def roster_archive():
 @admin_only
 def roster_single(roster_id):
     roster_entries = db.session.query(rosterEntryMaster).filter_by(rosterID=roster_id).all()
+    roster_element = rosterMaster.query.get(roster_id)
+    roster_date = roster_element.date
+    roster_day = datetime.datetime.strptime(roster_date, "%Y-%m-%d").strftime('%A')
+    roster_full_date = datetime.datetime.strptime(roster_date, '%Y-%m-%d').strftime('%B %d, %Y')
     employee_list = []
     hotel_list = []
     for i in roster_entries:
@@ -819,7 +867,7 @@ def roster_single(roster_id):
         hotel_list.append(hotel.name)
         employee_list.append(employee.name)
     return render_template("roster_entries.html", entries=roster_entries, employees=employee_list, hotels=hotel_list,
-                           len=range(len(roster_entries)))
+                           len=range(len(roster_entries)), date=roster_full_date, day=roster_day)
 
 
 @app.route("/roster_single_edit/<roster_id>", methods=["GET", "POST"])
@@ -829,6 +877,10 @@ def roster_single_edit(roster_id):
     roster_entries = db.session.query(rosterEntryMaster).filter_by(rosterID=roster_id).all()
     employee_list = []
     hotel_list = []
+    roster_element = rosterMaster.query.get(roster_id)
+    roster_date = roster_element.date
+    roster_day = datetime.datetime.strptime(roster_date, "%Y-%m-%d").strftime('%A')
+    roster_full_date = datetime.datetime.strptime(roster_date, '%Y-%m-%d').strftime('%B %d, %Y')
     for i in roster_entries:
         employee = db.session.query(employeeMaster).filter_by(id=i.employeeID).first()
         hotel = db.session.query(hotelMaster).filter_by(id=i.hotelID).first()
@@ -836,7 +888,7 @@ def roster_single_edit(roster_id):
         employee_list.append(employee.name)
     return render_template("roster_entries_edit.html", entries=roster_entries, employees=employee_list,
                            hotels=hotel_list,
-                           len=range(len(roster_entries)))
+                           len=range(len(roster_entries)), date=roster_full_date, day=roster_day)
 
 
 @app.route("/add_roster_element/<roster_id>", methods=["GET", "POST"])
@@ -850,7 +902,7 @@ def add_roster_element(roster_id):
         new_entry = rosterEntryMaster(timeIn1=request.form.get('timeIn1'), timeOut1=request.form.get('timeOut1'),
                                       timeIn2=request.form.get('timeIn2'),
                                       timeOut2=request.form.get('timeOut2'), pickUp=request.form.get('pickUp'),
-                                      remark=request.form.get('remark'), absent=request.form.get('absent'),
+                                      remark=request.form.get('remarks'), absent=request.form.get('absent'),
                                       employee=employee_element, roster=roster_element,
                                       hotel=hotel_element)
         db.session.add(new_entry)
@@ -971,8 +1023,8 @@ def employee_report():
     department = []
     for ts in employee_list:
         department_element = departmentMaster.query.get(ts.departmentId)
-        hotel_name = department_element.name
-        department.append(hotel_name)
+        department_name = department_element.name
+        department.append(department_name)
     return render_template("employee_report.html", ts=employee_list, len=range(len(department)), departments=department,
                            data=data)
 
@@ -987,7 +1039,8 @@ def employee_edit(employee_id):
     a = str(employee_element.joining_date)
     date_str = a[:10]
     print(date_str)
-    if form.validate_on_submit():
+    if request.method == "POST":
+        a_date = datetime.datetime.strptime(request.form.get('joining_date'), '%Y-%m-%d').date()
         employee_element.name = request.form.get("name")
         employee_element.addressUae = request.form.get('address_uae')
         employee_element.poBox = request.form.get('po_box')
@@ -1011,7 +1064,7 @@ def employee_edit(employee_id):
         employee_element.emCoMobileNumber = request.form.get('e_co_mob')
         employee_element.emCoHomeNumber = request.form.get('e_co_hom')
         employee_element.employeeID = request.form.get('employee_id')
-        employee_element.joining_date = request.form.get('joining_date')
+        employee_element.joining_date = a_date
         employee_element.company_laptop = request.form.get('company_laptop')
         employee_element.company_mobile = request.form.get('company_mobile')
         employee_element.user = current_user
@@ -1030,8 +1083,8 @@ def employee_view(employee_id):
     date_str = a[:10]
     actionItems = db.session.query(actionItemMaster).filter_by(employeeID=employee_id).all()
     doc_element = db.session.query(documentMaster).filter_by(employeeID=employee_id).first()
-    img_url = doc_element.documentName
-
+    # img_url = doc_element.documentName
+    img_url = "file:///C:/Users/karth/Downloads/Images/1image.jpg"
     # get total hours worked
     ts_employee = db.session.query(timesheetEntryMaster).filter_by(employeeID=employee_id).all()
     totalHours = 0
@@ -1078,7 +1131,8 @@ def employee_view(employee_id):
         return redirect(url_for("employee_view", employee_id=employee_id))
 
     return render_template("employee_view.html", employee=employee_element, form=form, date_str=date_str,
-                           workedHours=totalHours, profile=round(profilePercent, 0), items=actionItems, img_url=img_url)
+                           workedHours=totalHours, profile=round(profilePercent, 0), items=actionItems, img_url=img_url,
+                           len=range(len(actionItems)))
 
 
 @app.route("/action_item_del/<entry_id>", methods=["GET", "POST"])
@@ -1090,7 +1144,6 @@ def action_item_del(entry_id):
     db.session.delete(entry_to_delete)
     db.session.commit()
     return redirect(url_for("employee_view", employee_id=employee_id))
-
 
 
 if __name__ == "__main__":
