@@ -50,7 +50,7 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField("Complete Registration")
 
     """
-    use this code to determine which submit field is selected in main.py
+    use this code to determine which submit field is selected in main1.py
      if form.validate_on_submit():
         if form.user_stats.data:
             return redirect(url_for('user_stats'))
