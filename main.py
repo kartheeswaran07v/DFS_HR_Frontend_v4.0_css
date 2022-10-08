@@ -502,11 +502,12 @@ def doc():
         # '/home / User / Documents'
         os.mkdir(path)
 
-        files = request.files.getlist("file")  # other multiple files
-        photo = request.files.get('photo')  # photo file
-        photo.save(os.path.join(app.config['../static/images/'], photo.filename))
         UPLOAD_FOLDER = f"{home_directory}/{directory}"
         app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+        files = request.files.getlist("file")  # other multiple files
+        photo = request.files.get('photo')  # photo file
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], photo.filename))
         for file in files:
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         # Save pic in folder
