@@ -22,7 +22,8 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 # CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///dfx_db_seis.db")
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///dfx_db_seis.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///dfx_db_seis.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -512,9 +513,9 @@ def doc():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         # Save pic in folder
 
-        new_doc = documentMaster(documentName=photo, documentDirectory=UPLOAD_FOLDER, employee=employee_element)
-        db.session.add(new_doc)
-        db.session.commit()
+        # new_doc = documentMaster(documentName=photo, documentDirectory=UPLOAD_FOLDER, employee=employee_element)
+        # db.session.add(new_doc)
+        # db.session.commit()
 
         return render_template("reg_suc.html", name=request.form.get('name'))
 
